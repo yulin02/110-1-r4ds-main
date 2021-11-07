@@ -1,6 +1,35 @@
+  
 #3.2 practice1
 concerts_sampled <- concerts_obo[c(3,5)]
+
 #3.2 practice2
 firstShowInfo <- concerts_obo[[2]][[5]][[1]][c(1 ,2)]
+
 #3.3 practice
 concerts_obo[[3]][[5]][[1]][c(1, 2)]  <- list("2022/01/31 19:30:00", "Taichung Opera House")
+
+JohnsFamily <-
+  list(
+    name = "John", 
+    age = 35,
+    spouse = list(
+      name = "Mary", 
+      age = 32),
+    children = list(
+      list(
+        name = "Bill", 
+        age = 5),
+      list(
+        name = "Jane", 
+        age = 3)
+    )
+  )
+
+#3.4 practice
+JohnsFamilyCopy3 <- JohnsFamily
+JohnsFamilyCopy3$children[3] <- list(
+    list(
+      name="Lisa",
+      age=0
+      )
+  )
