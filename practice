@@ -1,1 +1,2 @@
-
+#3.2 practice
+concerts_sampled <- concerts_obo[c(3,5)]
