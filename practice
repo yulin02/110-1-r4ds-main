@@ -33,3 +33,8 @@ JohnsFamilyCopy3$children[3] <- list(
       age=0
       )
   )
+
+#3.5 practice
+concerts_obo[[5]]$showInfo[[2]] <- list()
+concerts_obo[[5]]$showInfo[[2]] <- concerts_obo[[5]]$showInfo[[1]]
+concerts_obo[[5]]$showInfo[[2]][[1]] <- "2021/12/27 19:30:00"
