@@ -40,7 +40,7 @@ concerts_obo[[5]]$showInfo[[2]] <- concerts_obo[[5]]$showInfo[[1]]
 concerts_obo[[5]]$showInfo[[2]][[1]] <- "2021/12/27 19:30:00"
 
 #3.6 practice
-
+concerts_obo[-c(2, 5, 7)]
 
 #3.7 practice 
 JohnsFamily <-
