@@ -61,3 +61,72 @@ JohnsFamily <-
   )
 JohnsFamilyCopy4 <- JohnsFamily
 JohnsFamilyCopy4$spouse <- NULL
+
+#4.1 Class
+typeof(c("John", "Mary"))
+typeof(c(2, 3.1412))
+typeof(c(TRUE, TRUE, F))
+
+class(c("John", "Mary"))
+class(c(2, 3.1412))
+class(c(TRUE, TRUE, F))
+
+class is a categorical method that categories different values based on what we can do with those values.
+*type : man and woman
+*class : difference based on skills. (plumber class, teacher class)
+
+##parsing
+"2021-01-01 12:03:33" + "20 seconds"
+lubridate::ymd_hms("2021-01-01 12:03:33") + lubridate::seconds(20)
+
+class("2021-01-01 12:03:33")
+class(lubridate::ymd_hms("2021-01-01 12:03:33"))
+
+#4.2Common Classes of Object Value
+commonClasses <- list()
+
+## save three different atomic vectors
+commonClasses$character <- c("John", "Mary", "Bill")
+commonClasses$numeric <- c(2.3, 4, 7)
+commonClasses$logical <- c(TRUE, T, F, FALSE)
+
+## check each atomic vector class
+class(commonClasses$character) # name call on commonClasses to get its value then retrieve the element value whose element name is "character"
+class(commonClasses$numeric)
+class(commonClasses$logical)
+
+#4.2.2 Factor
+bloodTypes <- c("AB", "AB", "A", "B", "A", "A", "B", "O", "O", "AB")
+bloodTypes_fct <- factor(bloodTypes)    ## to let R understand data is categorical
+levels(bloodTypes_fct)   ## to know how many categories are there
+table(bloodTypes_fct)   ## to count how many persons in each category
+
+#4.1 practice
+{r}
+customerExperience <- c('very happy','very happy','satisfied','satisfied','satisfied','very happy','bad','bad','satisfied','satisfied','bad','happy','happy','very happy','happy','happy','satisfied','very happy','very happy','satisfied','satisfied','very happy','satisfied','bad','very happy','very bad','very happy','bad','bad','very bad')
+{r}
+customerExperience_fct <- 
+  factor(customerExperience)
+levels(customerExperience_fct)
+{r}
+customerExperience_fct_levelsSetup <-
+  factor(customerExperience, levels = c("very bad", "bad", "satisfied", "happy", "very happy"))
+levels(customerExperience_fct_levelsSetup)
+{r}
+table(customerExperience_fct_levelsSetup)
+{r}
+customerExperience_fct_levelsSetup_ordered <-
+  factor(
+    customerExperience, 
+    levels = c("very bad", "bad", "satisfied", "happy", "very happy"),
+    ordered = T
+    )
+{r}
+customerExperience_fct_levelsSetup_ordered[[1]]
+customerExperience_fct_levelsSetup_ordered[[1]] > "bad"
+
+customerExperience_fct_levelsSetup_ordered[[3]]
+customerExperience_fct_levelsSetup_ordered[[3]] > "bad"
+{r}
+customerExperience$ordered_factor <- customerExperience_fct_levelsSetup_ordered
+class(customerExperience$ordered_factor)
