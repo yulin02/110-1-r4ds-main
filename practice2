@@ -1,1 +1,29 @@
-
+exercise 4.2
+{r}
+subsidiaries <- list()
+subsidiaries$boston <- c("2020 Oct. 13 15:00:00", "2019 Apr. 10 09:30:00") # boston time zone
+subsidiaries$mykonos <- c("14 Jan., 2021 03:27:00", "8 Aug., 2020 11:20:00") # mykonos time zone
+{r}
+dateTime_boston <-
+  lubridate::ymd_hms(
+    c("2020 Oct. 13 15:00:00", "2019 Apr. 10 09:30:00"),
+    tz="Africa/Casablanca"
+  )
+{r}
+dateTime_mykonos <-
+  lubridate::dmy_hms(
+    c("14 Jan., 2021 03:27:00", "8 Aug., 2020 11:20:00"),
+    tz="Etc/GMT+2"
+  )
+{r}
+commonClasses$date_time_exercise <- c(
+  dateTime_boston,
+  dateTime_mykonos
+)
+class(commonClasses$date_time_exercise)
+{r}
+dateTime_bostonAndMykonos_atIndia <- 
+  lubridate::with_tz(
+    commonClasses$date_time_exercise,
+    tz="Asia/Calcutta"
+  )
